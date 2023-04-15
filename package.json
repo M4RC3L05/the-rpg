@@ -1,6 +1,6 @@
 {
   "name": "therpg",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The 2d rpg made with node and raylib",
   "main": "index.js",
   "type": "module",

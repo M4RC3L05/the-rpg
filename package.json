@@ -1,0 +1,64 @@
+{
+  "name": "therpg",
+  "version": "0.0.0",
+  "description": "The 2D RPG game",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "keywords": [
+    "2d",
+    "raylib",
+    "game",
+    "rpg"
+  ],
+  "author": "M4RC3L05",
+  "license": "MIT",
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "editorconfig": true,
+    "endOfLine": "lf",
+    "printWidth": 100,
+    "proseWrap": "preserve",
+    "quoteProps": "as-needed",
+    "semi": true,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "xo": {
+    "enabled": true,
+    "prettier": true,
+    "rules": {
+      "new-cap": [
+        "error",
+        {
+          "capIsNewExceptionPattern": "^r\\.."
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
+    "start": "node --loader=ts-node/esm --no-warnings src/main.ts",
+    "lint": "xo . --ext .ts && tsc -p tsconfig.json --noEmit --skipLibCheck",
+    "lint-staged": "lint-staged"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.7",
+    "typescript": "^5.0.4",
+    "xo": "^0.54.1"
+  },
+  "dependencies": {
+    "@swc/core": "^1.3.50",
+    "raylib": "^0.14.0",
+    "ts-node": "^10.9.1"
+  },
+  "engines": {
+    "node": "18.*.*"
+  }
+}

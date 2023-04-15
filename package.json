@@ -43,12 +43,16 @@
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
     "start": "node --loader=ts-node/esm --no-warnings src/main.ts",
     "lint": "xo . --ext .ts && tsc -p tsconfig.json --noEmit --skipLibCheck",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "version": "offline-github-changelog --next=${npm_new_version} > CHANGELOG.md && git add CHANGELOG.md",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
+    "offline-github-changelog": "^3.0.1",
+    "patch-package": "^6.5.1",
     "prettier": "^2.8.7",
     "typescript": "^5.0.4",
     "xo": "^0.54.1"

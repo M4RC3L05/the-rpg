@@ -1,0 +1,16 @@
+{
+  "jsc": {
+    "keepClassNames": true,
+    "loose": false,
+    "target": "esnext",
+    "parser": {
+      "syntax": "typescript"
+    },
+    "externalHelpers": false
+  },
+  "sourceMaps": false,
+  "module": {
+    "type": "nodenext",
+    "strict": true
+  }
+}

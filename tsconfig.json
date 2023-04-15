@@ -3,6 +3,7 @@
     "lib": [
       "ESNext"
     ],
+    "sourceMap": false,
     "moduleResolution": "nodenext",
     "module": "NodeNext",
     "target": "ESNext",

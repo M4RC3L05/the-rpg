@@ -45,7 +45,9 @@
     "lint": "xo . --ext .ts && tsc -p tsconfig.json --noEmit --skipLibCheck",
     "lint-staged": "lint-staged",
     "version": "offline-github-changelog --next=${npm_new_version} | sed -e '/Release v.*/d;s/ (\\[.*\\]\\(.*\\))//gm' > CHANGELOG.md && git add CHANGELOG.md",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "pretranspile": "rm -rf ./dist && mkdir ./dist",
+    "transpile": "swc ./src --config-file .swcrc -d ./dist -D"
   },
   "devDependencies": {
     "@swc/cli": "^0.1.62",

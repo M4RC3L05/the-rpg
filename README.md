@@ -1,6 +1,6 @@
 # THE RPG (title is a work in progress)
 
-The 2d rpg made with node and raylib
+The 2d rpg made with node and raylib.
 
 ## Setup
 
@@ -14,7 +14,7 @@ npm i
 
 ## Development
 
-To run the project just run
+To run the project just run:
 
 ```bash
 npm run start

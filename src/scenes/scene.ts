@@ -9,6 +9,7 @@ abstract class Scene {
 
   abstract update(dt: number): void;
   abstract fixedUpdate(dt: number): void;
+  abstract lateUpdate(dt: number): void;
   abstract render(): void;
 }
 

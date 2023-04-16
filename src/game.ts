@@ -21,6 +21,10 @@ class Game {
     this.#scene.fixedUpdate(dt);
   }
 
+  lateUpdate(dt: number) {
+    this.#scene.lateUpdate(dt);
+  }
+
   render() {
     this.#scene.render();
   }
@@ -38,6 +42,8 @@ class Game {
 
         acc -= 1 / 60;
       }
+
+      this.lateUpdate(r.GetFrameTime());
 
       this.#scene.camera.zoom = Math.min(
         (r.GetScreenWidth() / (1920 / 6)) * r.GetWindowScaleDPI().x,

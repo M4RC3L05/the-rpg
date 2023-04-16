@@ -1,24 +1,28 @@
 import r from "raylib";
-import Player from "../entities/player.js";
+import Player from "../entities/player/player.js";
 import Scene from "./scene.js";
 
 class TestScene extends Scene {
   #player!: Player;
 
-  override init(): void {
+  override init() {
     this.#player = new Player();
     this.#player.init();
   }
 
-  override update(dt: number): void {
+  override update(dt: number) {
     this.#player.update(dt);
   }
 
-  override fixedUpdate(dt: number): void {
+  override fixedUpdate(dt: number) {
     this.#player.fixedUpdate(dt);
   }
 
-  override render(): void {
+  override lateUpdate(dt: number) {
+    this.#player.lateUpdate(dt);
+  }
+
+  override render() {
     this.camera.target = { ...this.#player.position };
 
     r.ClearBackground(r.BLACK);

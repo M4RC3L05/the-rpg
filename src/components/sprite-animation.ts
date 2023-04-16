@@ -12,6 +12,7 @@ class SpriteAnimation {
 
   #activeAnimation;
   #animations: Record<string, Animation>;
+  #frameCompleted = false;
 
   constructor(animations: Record<string, Animation>, active: string) {
     this.#activeAnimation = active;
@@ -29,6 +30,10 @@ class SpriteAnimation {
     return this.#animations[this.#activeAnimation].frames[this.#frame];
   }
 
+  get completed() {
+    return this.#frameCompleted;
+  }
+
   playAnimation(anim: string) {
     if (this.#activeAnimation === anim) return;
     if (!(this.#activeAnimation in this.#animations)) return;
@@ -36,18 +41,25 @@ class SpriteAnimation {
     this.#frame = 0;
     this.#frameCounter = 0;
     this.#activeAnimation = anim;
+    this.#frameCompleted = false;
   }
 
   animate(dt: number) {
     if (!this.#activeAnimation) return;
+    if (!(this.#activeAnimation in this.#animations)) return;
 
     const active = this.#animations[this.#activeAnimation];
 
-    if (this.#frame >= active.frames.length - 1 && !active.loop) {
+    this.#frameCounter += dt;
+
+    if (
+      this.#frame >= active.frames.length - 1 &&
+      this.#frameCounter >= active.frameDuration &&
+      !active.loop
+    ) {
+      this.#frameCompleted = true;
       return;
     }
-
-    this.#frameCounter += dt;
 
     if (this.#frameCounter >= active.frameDuration) {
       this.#frameCounter -= active.frameDuration;

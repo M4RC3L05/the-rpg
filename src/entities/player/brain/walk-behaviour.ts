@@ -12,7 +12,7 @@ class WalkBehaviour extends BrainBehaviour<Player> {
   override update(dt: number): void {
     this.entity.inputMoveAction();
     this.entity.computeMoveDirection(this.entity.input as ActorDirection);
-    this.entity.animate(dt);
+    this.entity.spriteAnimation.animate(dt);
   }
 
   override fixedUpdate(dt: number) {

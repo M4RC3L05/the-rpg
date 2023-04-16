@@ -12,7 +12,7 @@ class FaceBehaviour extends BrainBehaviour<Player> {
 
   override update(dt: number): void {
     this.entity.inputMoveAction();
-    this.entity.animate(dt);
+    this.entity.spriteAnimation.animate(dt);
   }
 
   override next(): string {

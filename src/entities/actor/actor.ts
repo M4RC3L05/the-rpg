@@ -124,10 +124,6 @@ class Actor extends Entity {
     this.#facing = dir;
   }
 
-  animate(dt: number) {
-    this.#spriteAnimation.animate(dt);
-  }
-
   computeMoveDirection(direction: ActorDirection) {
     if (this.#moving) return;
 

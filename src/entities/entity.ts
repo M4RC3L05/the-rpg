@@ -1,5 +1,11 @@
+import { type Vector2 } from "raylib";
+
 abstract class Entity {
-  position: { x: number; y: number } = { x: 0, y: 0 };
+  position: Vector2;
+
+  constructor(position?: Vector2) {
+    this.position = position ?? { x: 0, y: 0 };
+  }
 
   init() {
     //
@@ -13,7 +19,15 @@ abstract class Entity {
     //
   }
 
+  lateUpdate(dt: number) {
+    //
+  }
+
   render() {
+    //
+  }
+
+  exit() {
     //
   }
 }

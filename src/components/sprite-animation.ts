@@ -36,7 +36,7 @@ class SpriteAnimation {
 
   playAnimation(anim: string) {
     if (this.#activeAnimation === anim) return;
-    if (!(this.#activeAnimation in this.#animations)) return;
+    if (!(anim in this.#animations)) return;
 
     this.#frame = 0;
     this.#frameCounter = 0;

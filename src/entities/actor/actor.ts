@@ -32,7 +32,7 @@ class Actor extends Entity {
             { x: 2, y: 3 },
             { x: 1, y: 3 },
           ],
-          frameDuration: 0.2,
+          frameDuration: 0.1,
           loop: true,
         },
         walkDown: {
@@ -42,7 +42,7 @@ class Actor extends Entity {
             { x: 2, y: 0 },
             { x: 1, y: 0 },
           ],
-          frameDuration: 0.2,
+          frameDuration: 0.1,
           loop: true,
         },
         walkLeft: {
@@ -52,7 +52,7 @@ class Actor extends Entity {
             { x: 2, y: 1 },
             { x: 1, y: 1 },
           ],
-          frameDuration: 0.2,
+          frameDuration: 0.1,
           loop: true,
         },
         walkRight: {
@@ -62,14 +62,14 @@ class Actor extends Entity {
             { x: 2, y: 2 },
             { x: 1, y: 2 },
           ],
-          frameDuration: 0.2,
+          frameDuration: 0.1,
           loop: true,
         },
 
-        idleUp: { frames: [{ x: 1, y: 3 }], frameDuration: 0.2, loop: false },
-        idleDown: { frames: [{ x: 1, y: 0 }], frameDuration: 0.2, loop: false },
-        idleLeft: { frames: [{ x: 1, y: 1 }], frameDuration: 0.2, loop: false },
-        idleRight: { frames: [{ x: 1, y: 2 }], frameDuration: 0.2, loop: false },
+        idleUp: { frames: [{ x: 1, y: 3 }], frameDuration: 0.1, loop: false },
+        idleDown: { frames: [{ x: 1, y: 0 }], frameDuration: 0.1, loop: false },
+        idleLeft: { frames: [{ x: 1, y: 1 }], frameDuration: 0.1, loop: false },
+        idleRight: { frames: [{ x: 1, y: 2 }], frameDuration: 0.1, loop: false },
 
         faceUp: {
           frames: [
@@ -118,6 +118,10 @@ class Actor extends Entity {
 
   get facing() {
     return this.#facing;
+  }
+
+  get steps() {
+    return this.#steps;
   }
 
   face(dir: ActorDirection) {

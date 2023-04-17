@@ -3,17 +3,12 @@ import type Player from "../player.js";
 
 class IdleBehaviour extends BrainBehaviour<Player> {
   override enter() {
-    const animName = this.entity.spriteAnimation.active.startsWith("walk")
-      ? this.entity.spriteAnimation.active.replace("walk", "")
-      : this.entity.spriteAnimation.active.startsWith("face")
-      ? this.entity.spriteAnimation.active.replace("face", "")
-      : this.entity.spriteAnimation.active.startsWith("idle")
-      ? this.entity.spriteAnimation.active.replace("idle", "")
-      : "Down";
-    this.entity.spriteAnimation.playAnimation(`idle${animName}`);
+    this.entity.spriteAnimation.playAnimation(
+      `idle${this.entity.facing.slice(0, 1).toUpperCase()}${this.entity.facing.slice(1)}`,
+    );
   }
 
-  override update(dt: number): void {
+  override update(dt: number) {
     this.entity.inputMoveAction();
     this.entity.spriteAnimation.animate(dt);
   }

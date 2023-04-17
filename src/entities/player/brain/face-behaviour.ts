@@ -1,5 +1,4 @@
 import { BrainBehaviour } from "../../../components/brain.js";
-import { type ActorDirection } from "../../actor/actor.js";
 import type Player from "../player.js";
 
 class FaceBehaviour extends BrainBehaviour<Player> {
@@ -7,15 +6,15 @@ class FaceBehaviour extends BrainBehaviour<Player> {
     this.entity.spriteAnimation.playAnimation(
       `face${this.entity.input.slice(0, 1).toUpperCase()}${this.entity.input.slice(1)}`,
     );
-    this.entity.face(this.entity.input as ActorDirection);
+    this.entity.face(this.entity.input);
   }
 
-  override update(dt: number): void {
+  override update(dt: number) {
     this.entity.inputMoveAction();
     this.entity.spriteAnimation.animate(dt);
   }
 
-  override next(): string {
+  override next() {
     if (this.entity.spriteAnimation.completed) {
       const actionTo = this.entity.input;
 

@@ -1,3 +1,22 @@
+### v0.2.0 (2023-04-17)
+
+- [Improve player movement and speed up animation frames](https://github.com/M4RC3L05/the-rpg/commit/76c5659cc26836198a2db97768d4e1533d08eeee)
+- [Call animate directly](https://github.com/M4RC3L05/the-rpg/commit/eb81a91edb061f4d0546bfd1eb7fc44f6762054a)
+- [Support \`lateUpdate\`](https://github.com/M4RC3L05/the-rpg/commit/d8e819d5ba4d4ef31830b5deabe8646b1fc6a3da)
+- [Update player entity with behaviours](https://github.com/M4RC3L05/the-rpg/commit/fdc4eafcb880572c45827ce76f556bfc9ce33f64)
+- [Support pass position and \`lateUpdate\` on entity](https://github.com/M4RC3L05/the-rpg/commit/1b3a2a6ea61bad83cca877bfa1afff636e3e3e7f)
+- [Move actor entity to its folder](https://github.com/M4RC3L05/the-rpg/commit/afe5486f98d0e287150b73e41fb2ed1539e40368)
+- [Add basic player movement behaviours](https://github.com/M4RC3L05/the-rpg/commit/86c0db5fc330938014ec52d866cbfd20f28cd178)
+- [Add brain component](https://github.com/M4RC3L05/the-rpg/commit/d37ba0e8822bee483022ce3a61165e3eafb4a07b)
+- [Add support for one shot animations](https://github.com/M4RC3L05/the-rpg/commit/44cf7149a93a3d66006f93d59abeff7a29a7b984)
+- [Add sprite-animation component](https://github.com/M4RC3L05/the-rpg/commit/3d66869101b673706b0aed5c7e1b9c69890aad58)
+- [Add game class](https://github.com/M4RC3L05/the-rpg/commit/21f38bf70a1736f4e32cf9d44dfba671073a69c8)
+- [Add test scene](https://github.com/M4RC3L05/the-rpg/commit/d5dcc75e777e17750c96e93f06ee9cbc2e04b56f)
+- [Add basic player with basic movement](https://github.com/M4RC3L05/the-rpg/commit/07f277e3dde77109aa6968ea2cfe27443a65dd6e)
+- [Setup git lfs](https://github.com/M4RC3L05/the-rpg/commit/bb4019796b83045bc8187733981bb141702a3448)
+- [Allow to transpile ts to js](https://github.com/M4RC3L05/the-rpg/commit/516793521fada7e113ecddbd4a44f4575434609c)
+- [Make typescript dependencies dev dependencies](https://github.com/M4RC3L05/the-rpg/commit/425c9670c1be7f214e638993b21d1cdaeeeb2ad2)
+
 ### v0.1.0 (2023-04-15)
 
 - [Add missing ponctuation](https://github.com/M4RC3L05/the-rpg/commit/4af6590c85a5ac882cc26bc051ea55d466db4ed0)

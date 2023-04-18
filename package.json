@@ -63,6 +63,7 @@
     "xo": "^0.54.1"
   },
   "dependencies": {
+    "fast-xml-parser": "^4.2.1",
     "raylib": "^0.14.0"
   },
   "engines": {

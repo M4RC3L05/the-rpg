@@ -1,6 +1,6 @@
 import r from "raylib";
 import type Scene from "./scenes/scene.js";
-import TestScene from "./scenes/test-scene.js";
+import OverworldScene from "./scenes/overworld-scene.js";
 
 class Game {
   #scene!: Scene;
@@ -9,7 +9,7 @@ class Game {
     r.SetConfigFlags(r.FLAG_WINDOW_RESIZABLE);
     r.InitWindow(1920, 1080, "THE RPG");
 
-    this.#scene = new TestScene();
+    this.#scene = new OverworldScene();
     this.#scene.init();
   }
 

@@ -2,7 +2,7 @@ import r from "raylib";
 import Player from "../entities/player/player.js";
 import Scene from "./scene.js";
 
-class TestScene extends Scene {
+class OverworldScene extends Scene {
   #player!: Player;
 
   override init() {
@@ -41,4 +41,4 @@ class TestScene extends Scene {
   }
 }
 
-export default TestScene;
+export default OverworldScene;

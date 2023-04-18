@@ -1,13 +1,22 @@
 import r from "raylib";
 import Player from "../entities/player/player.js";
+import GameMap from "../entities/map/map.js";
 import Scene from "./scene.js";
 
 class OverworldScene extends Scene {
   #player!: Player;
+  #map!: GameMap;
 
   override init() {
     this.#player = new Player();
     this.#player.init();
+    this.#player.position = { x: 100, y: 100 };
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    this.#map = new GameMap("./assets/maps", "overworld");
+    this.#map.init();
   }
 
   override update(dt: number) {
@@ -28,14 +37,14 @@ class OverworldScene extends Scene {
     r.ClearBackground(r.BLACK);
 
     r.BeginMode2D(this.camera);
-    for (let y = 0; y <= 1080 / 6; y += 16) {
-      r.DrawLine(0, y, 1920 / 6, y, r.WHITE);
-    }
-
-    for (let x = 0; x <= 1920 / 6; x += 16) {
-      r.DrawLine(x, 0, x, 1080 / 6, r.WHITE);
-    }
-
+    this.#map.renderLayer("ground");
+    this.#map.renderLayer("paths");
+    this.#map.renderLayer("path_decors");
+    this.#map.renderLayer("housing_floor");
+    this.#map.renderLayer("housing");
+    this.#map.renderLayer("housing_decor");
+    this.#map.renderLayer("vegetation_low");
+    this.#map.renderLayer("vegetation");
     this.#player.render();
     r.EndMode2D();
   }

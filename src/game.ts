@@ -46,8 +46,8 @@ class Game {
       this.lateUpdate(r.GetFrameTime());
 
       this.#scene.camera.zoom = Math.min(
-        (r.GetScreenWidth() / (1920 / 6)) * r.GetWindowScaleDPI().x,
-        (r.GetScreenHeight() / (1080 / 6)) * r.GetWindowScaleDPI().y,
+        (r.GetScreenWidth() / (1920 / 8)) * r.GetWindowScaleDPI().x,
+        (r.GetScreenHeight() / (1080 / 8)) * r.GetWindowScaleDPI().y,
       );
       this.#scene.camera.offset = { x: r.GetScreenWidth() / 2, y: r.GetScreenHeight() / 2 };
 

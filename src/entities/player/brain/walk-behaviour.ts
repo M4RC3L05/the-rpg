@@ -30,10 +30,19 @@ class WalkBehaviour extends BrainBehaviour<Player> {
 
   override next() {
     if (this.entity.moving) return "walk";
-
     const actionTo = this.entity.input;
 
     if (actionTo === "idle") {
+      return "idle";
+    }
+
+    const dir = this.entity.inputToDir(this.entity.input);
+    if (
+      this.entity.scene.map.isCellCollidable({
+        x: this.entity.position.x + dir.x * 16,
+        y: this.entity.position.y + dir.y * 16,
+      })
+    ) {
       return "idle";
     }
 

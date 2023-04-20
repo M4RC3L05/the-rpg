@@ -22,6 +22,16 @@ class FaceBehaviour extends BrainBehaviour<Player> {
         return "idle";
       }
 
+      const dir = this.entity.inputToDir(this.entity.input);
+      if (
+        this.entity.scene.map.isCellCollidable({
+          x: this.entity.position.x + dir.x * 16,
+          y: this.entity.position.y + dir.y * 16,
+        })
+      ) {
+        return "idle";
+      }
+
       return "walk";
     }
 

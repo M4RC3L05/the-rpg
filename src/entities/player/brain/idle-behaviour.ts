@@ -17,11 +17,21 @@ class IdleBehaviour extends BrainBehaviour<Player> {
     const actionTo = this.entity.input;
 
     if (actionTo !== "idle") {
-      if (this.entity.input === this.entity.facing) {
-        return "walk";
+      if (this.entity.input !== this.entity.facing) {
+        return "face";
       }
 
-      return "face";
+      const dir = this.entity.inputToDir(this.entity.input);
+      if (
+        this.entity.scene.map.isCellCollidable({
+          x: this.entity.position.x + dir.x * 16,
+          y: this.entity.position.y + dir.y * 16,
+        })
+      ) {
+        return "idle";
+      }
+
+      return "walk";
     }
 
     return "idle";

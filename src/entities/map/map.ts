@@ -1,7 +1,6 @@
 import fs from "node:fs";
-import { inspect } from "node:util";
 import { XMLParser } from "fast-xml-parser";
-import r, { type Texture2D } from "raylib";
+import r, { type Vector2, type Texture2D } from "raylib";
 import Entity from "../entity.js";
 
 abstract class GameMap extends Entity {
@@ -33,6 +32,14 @@ abstract class GameMap extends Entity {
         .split("\n")
         .map((row) => row.split(",").map(Number));
     }
+
+    this.#parsed.map.objectgroup.object = this.colliders.map((collider) => ({
+      ...collider,
+      x: Number(collider.x),
+      y: Number(collider.y),
+      width: Number(collider.width),
+      height: Number(collider.height),
+    }));
   }
 
   get tilesets() {
@@ -41,6 +48,10 @@ abstract class GameMap extends Entity {
 
   get layers() {
     return this.#parsed.map.layer as Array<Record<string, any>>;
+  }
+
+  get colliders() {
+    return this.#parsed.map.objectgroup.object as r.Rectangle[];
   }
 
   getTileImage(tileN: number) {
@@ -68,6 +79,26 @@ abstract class GameMap extends Entity {
       width: 16,
       height: 16,
     };
+  }
+
+  isCellCollidable(pos: Vector2) {
+    for (const collider of this.colliders) {
+      if (
+        r.CheckCollisionRecs(
+          { ...pos, width: 16, height: 16 },
+          {
+            x: collider.x,
+            y: collider.y,
+            width: collider.width,
+            height: collider.height,
+          },
+        )
+      ) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   renderLayer(name: string) {
@@ -108,6 +139,12 @@ abstract class GameMap extends Entity {
       }
 
       y += 16;
+    }
+  }
+
+  renderColliders() {
+    for (const c of this.colliders) {
+      r.DrawRectangle(c.x, c.y, c.width, c.height, r.ColorAlpha(r.BLUE, 0.5));
     }
   }
 }

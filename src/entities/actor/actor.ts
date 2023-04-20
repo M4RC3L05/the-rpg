@@ -1,4 +1,4 @@
-import r, { type Vector2, type Texture2D } from "raylib";
+import r, { type Vector2, type Texture2D, CheckCollisionBoxSphere } from "raylib";
 import SpriteAnimation from "../../components/sprite-animation.js";
 import Entity from "../entity.js";
 
@@ -128,37 +128,34 @@ class Actor extends Entity {
     this.#facing = dir;
   }
 
-  computeMoveDirection(direction: ActorDirection) {
-    if (this.#moving) return;
-
-    this.#dir = { x: 0, y: 0 };
-
+  inputToDir(direction: ActorDirection) {
     switch (direction) {
       case "up": {
-        this.#dir = { x: 0, y: -1 };
-
-        break;
+        return { x: 0, y: -1 };
       }
 
       case "left": {
-        this.#dir = { x: -1, y: 0 };
-        break;
+        return { x: -1, y: 0 };
       }
 
       case "right": {
-        this.#dir = { x: 1, y: 0 };
-        break;
+        return { x: 1, y: 0 };
       }
 
       case "down": {
-        this.#dir = { x: 0, y: 1 };
-        break;
+        return { x: 0, y: 1 };
       }
 
       default: {
-        break;
+        return { x: 0, y: 0 };
       }
     }
+  }
+
+  computeMoveDirection(direction: ActorDirection) {
+    if (this.#moving) return;
+
+    this.#dir = this.inputToDir(direction);
 
     if (this.#dir.x !== 0 || this.#dir.y !== 0) {
       this.#moving = true;
@@ -192,6 +189,8 @@ class Actor extends Entity {
       0,
       r.WHITE,
     );
+
+    // R.DrawRectangle(this.position.x, this.position.y, 16, 16, r.ColorAlpha(r.PURPLE, 0.5));
   }
 }
 

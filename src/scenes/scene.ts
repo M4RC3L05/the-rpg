@@ -1,6 +1,8 @@
 import { type Camera2D } from "raylib";
+import type GameMap from "../entities/map/map.js";
 
 abstract class Scene {
+  map!: GameMap;
   camera: Camera2D = { offset: { x: 0, y: 0 }, rotation: 0, target: { x: 0, y: 0 }, zoom: 1 };
 
   init() {

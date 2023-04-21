@@ -1,6 +1,7 @@
 import r from "raylib";
 import type Scene from "./scenes/scene.js";
 import OverworldScene from "./scenes/overworld-scene.js";
+import GrassArenaScene from "./scenes/grass-arena-scene.js";
 
 class Game {
   #scene!: Scene;
@@ -9,7 +10,7 @@ class Game {
     r.SetConfigFlags(r.FLAG_WINDOW_RESIZABLE);
     r.InitWindow(1920, 1080, "THE RPG");
 
-    this.#scene = new OverworldScene();
+    this.#scene = new GrassArenaScene();
     this.#scene.init();
   }
 
